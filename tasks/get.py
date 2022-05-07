@@ -30,8 +30,10 @@ def extract_embeddings(product, upstream):
     Extract the embeddings archive
     """
     file = tarfile.open(upstream['embeddings'])
-    filenames = file.getnames()
     dest = Path(str(product)).parent
-    file.extract(filenames[0], dest)
+    file.extractall(dest)
     file.close()
-    os.rename(filenames[0], str(product))
+
+    for file in os.listdir(dest):
+        if file.startswith('cord_19_embeddings'):
+            os.rename(os.path.join(dest, file), str(product))
