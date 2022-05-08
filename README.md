@@ -1,6 +1,8 @@
 # CovEffect-data-provision
 Data provisioning pipeline for GeCo CovEffect's project
 
+![Pipeline plot](pipeline.png)
+
 ## Setup
 
 ```sh

@@ -1,4 +1,5 @@
 # add here other dependencies that are only needed for development
+pygraphviz
 pytest
 jupyter
 jupyterlab
