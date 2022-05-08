@@ -135,3 +135,6 @@ vignettes/*.pdf
 
 # pkgdown site
 docs/
+
+# Whitelist
+!CiteScoreMay2021.csv
