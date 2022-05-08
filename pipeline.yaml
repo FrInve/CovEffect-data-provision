@@ -10,4 +10,18 @@ tasks:
 
   - source: tasks.get.extract_embeddings
     product: products/raw/embeddings.csv
-  
+
+  - source: scripts/clean.py
+    name: clean
+    product:
+      nb: products/clean/output_cleaning.ipynb
+      cleaned_metadata: products/clean/cleaned_metadata.parquet
+    params:
+      sample: True
+      link_journal: True
+   
+  - source: scripts/retrieval.py
+    name: retrieval
+    product:
+      nb: products/retrieval/output_retrieval.ipynb
+      whoosh: products/retrieval/
