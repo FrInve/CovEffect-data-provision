@@ -41,4 +41,10 @@ tasks:
       nb: products/similar/output_similar.ipynb
       annoy_idx: products/similar/embeddings.ann
       annoy_metadata: products/similar/annoy_metadata.parquet
+  
+  - source: scripts/production_metadata.py
+    name: production_metadata
+    product:
+      nb: products/production_metadata/output_production_metadata.ipynb
+      metadata: products/production_metadata/metadata.csv
 
