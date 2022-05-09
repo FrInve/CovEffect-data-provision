@@ -25,3 +25,13 @@ tasks:
     product:
       nb: products/retrieval/output_retrieval.ipynb
       whoosh: products/retrieval/index.tar.gz
+  
+  - source: scripts/embeddings_feature.py
+    name: embeddings_feature
+    product:
+      nb: products/embeddings/output_embeddings_feature.ipynb
+      embeddings_100: products/embeddings/embeddings_100.parquet
+      pca_100: products/embeddings/pca_100.joblib
+    params:
+      sample: True
+
