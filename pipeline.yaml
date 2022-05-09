@@ -24,4 +24,4 @@ tasks:
     name: retrieval
     product:
       nb: products/retrieval/output_retrieval.ipynb
-      whoosh: products/retrieval/index.tar
+      whoosh: products/retrieval/index.tar.gz
