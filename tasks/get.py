@@ -2,6 +2,7 @@ from pathlib import Path
 import os
 import tarfile
 import wget
+import logging
 
 def metadata(product):
     """
