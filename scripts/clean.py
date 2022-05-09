@@ -144,7 +144,7 @@ df = df[df.abstract.notna()]
 # %%
 # Load CiteScore data
 if link_journal:
-    cs = pd.read_csv('/home/frinve/Code/agave/pipeline/rsc/CiteScoreMay2021.csv', sep=';')
+    cs = pd.read_csv('./rsc/CiteScoreMay2021.csv', sep=';')
 
     #Change locale to us_US
     cs['CiteScore 2020'] = cs['CiteScore 2020'].str.replace(',','.')
