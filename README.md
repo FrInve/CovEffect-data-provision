@@ -3,6 +3,13 @@ Data provisioning pipeline for GeCo CovEffect's project
 
 ![Pipeline plot](pipeline.png)
 
+## Output files for production:
+| Path | Destination |
+|---|---|
+| products/production_metadata/metadata.csv | mariadb/production/metadata |
+| products/retrieval/index.tar.gz | extract and move indexdir and its content to backend/api/local_data/ |
+| products/similar/embeddings.ann | move to backend/api/local_data/annoy/
+
 ## Setup
 
 ```sh
@@ -16,12 +23,6 @@ source {path-to-venv}/bin/activate
 {path-to-venv}\Scripts\Activate.ps0
 ```
 
-## Code editor integration
-
-* If using Jupyter, [click here](https://docs.ploomber.io/en/latest/user-guide/jupyter.html)
-* If using VSCode, PyCharm, or Spyder, [click here](https://docs.ploomber.io/en/latest/user-guide/editors.html)
-
-
 
 ## Running the pipeline
 
@@ -29,7 +30,4 @@ source {path-to-venv}/bin/activate
 ploomber build
 ```
 
-## Help
-
-* Need help? [Ask us anything on Slack!](https://ploomber.io/community)
 
