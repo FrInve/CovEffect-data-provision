@@ -59,6 +59,7 @@ print("Shape after deduplication: " + str(dfe.shape))
 # %%
 dfe = dfe[dfe.cord_uid.isin(df.cord_uid)]
 print("Shape after IsIn clean metadata: " + str(dfe.shape))
+
 # %%
 #Normalize the columns
 scaler = StandardScaler()
@@ -67,7 +68,10 @@ dfe[dfe.columns[1:769]] = scaler.fit_transform(dfe[dfe.columns[1:769]])
 # %%
 pca_100 = PCA(n_components=100)
 
-dfe_pca_100 = pca_100.fit_transform(dfe.drop(['cord_uid'], axis=1))
+dfe_pca_100 = pd.DataFrame(pca_100.fit_transform(dfe.drop(['cord_uid'], axis=1)), index=dfe.index)
+
+# %%
+dfe_pca_100['cord_uid'] = dfe['cord_uid']
 
 # %%
 print("Explained variance ration: ")
@@ -79,5 +83,5 @@ Path(str(product['pca_100'])).parent.mkdir(exist_ok=True,parents=True)
 dump(pca_100, str(product['pca_100']))
 # %%
 # Export embeddings after PCA
-dfe.columns = dfe.columns.astype(str)
-dfe.to_parquet(str(product['embeddings_100']))
+dfe_pca_100.columns = dfe_pca_100.columns.astype(str)
+dfe_pca_100.to_parquet(str(product['embeddings_100']))
