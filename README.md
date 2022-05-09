@@ -13,14 +13,16 @@ Data provisioning pipeline for GeCo CovEffect's project
 ## Setup
 
 ```sh
-# NOTE: if running ploomber <-1.16, remove the --create-env argument
-ploomber install --create-env
-# activate environment (unix)
-source {path-to-venv}/bin/activate
-# activate environment (windows cmd.exe)
-{path-to-venv}\Scripts\activate.bat
-# activate environment (windows PowerShell)
-{path-to-venv}\Scripts\Activate.ps0
+# Clone this repo
+git clone git@github.com:FrInve/CovEffect-data-provision.git
+# cd to CovEffect-data-provision
+cd CovEffect-data-provision
+# Create an environment
+python3 -m venv .venv
+# activate environment
+source .venv/bin/activate
+# install dependencies
+pip3 install -r requirements.txt
 ```
 
 
