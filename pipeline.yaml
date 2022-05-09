@@ -34,4 +34,11 @@ tasks:
       pca_100: products/embeddings/pca_100.joblib
     params:
       sample: True
+  
+  - source: scripts/similar.py
+    name: similar
+    product:
+      nb: products/similar/output_similar.ipynb
+      annoy_idx: products/similar/embeddings.ann
+      annoy_metadata: products/similar/annoy_metadata.parquet
 
