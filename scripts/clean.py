@@ -16,6 +16,14 @@
 #   ploomber: {}
 # ---
 
+
+# %% tags=["parameters"]
+# Parameters
+upstream = ['metadata']
+product = None
+sample = None
+link_journal = None
+
 # %%
 import pandas as pd
 import numpy as np
@@ -25,14 +33,10 @@ from tqdm import tqdm
 from langdetect import detect
 
 tqdm.pandas()
-pandarallel.initialize(use_memory_fs=False, progress_bar=False)
-
-# %% tags=["parameters"]
-# Parameters
-upstream = ['metadata']
-product = None
-sample = None
-link_journal = None
+if sample:
+    pandarallel.initialize(use_memory_fs=False, progress_bar=False)
+else:
+    pandarallel.initialize(use_memory_fs=False, progress_bar=False, nb_workers=8)
 # %%
 
 metadata_path = str(upstream['metadata']['metadata'])
