@@ -17,7 +17,7 @@ tasks:
       nb: products/clean/output_cleaning.ipynb
       cleaned_metadata: products/clean/cleaned_metadata.parquet
     params:
-      sample: True
+      sample: False
       link_journal: True
    
   - source: scripts/retrieval.py
@@ -33,7 +33,7 @@ tasks:
       embeddings_100: products/embeddings/embeddings_100.parquet
       pca_100: products/embeddings/pca_100.joblib
     params:
-      sample: True
+      sample: False
   
   - source: scripts/similar.py
     name: similar
