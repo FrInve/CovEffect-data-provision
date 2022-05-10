@@ -12,15 +12,36 @@ Data provisioning pipeline for GeCo CovEffect's project
 
 ## Setup
 
+Clone this repo in a directory with exec privilege
 ```sh
-# Clone this repo
 git clone git@github.com:FrInve/CovEffect-data-provision.git
+```
+
+By now this pipeline has been tested only on archlinux.
+Get the latest archlinux image from dockerhub with:
+
+Change <CHANGE_INTO_FULL_PATH> with the path of the repo directory before execution.
+```sh
+docker run -it --name arch -v <CHANGE_INTO_FULL_PATH>/CovEffect-data-provision:/CovEffect-data-provision -h arch -d archlinux:latest
+```
+Initialize pacman and install base-devels and python3
+```sh
+pacman-key --init
+pacman -Syu
+pacman -S base-devel python
+```
+
+Setup a virtual environment and install the dependencies
+
+```sh
 # cd to CovEffect-data-provision
 cd CovEffect-data-provision
 # Create an environment
 python3 -m venv .venv
 # activate environment
 source .venv/bin/activate
+# install wheel
+pip3 install wheel
 # install dependencies
 pip3 install -r requirements.txt
 ```
