@@ -216,7 +216,9 @@ if link_journal:
             else:
                 return np.nan
 
-    df['CiteScoreJournal'] = df['journal'].apply(getJournal)
+    df['CiteScoreJournal'] = df['journal'].parallel_apply(getJournal)
+else:
+    df['CiteScoreJournal'] = df['journal']
 
 # %%
 df.to_parquet(str(product['cleaned_metadata']))
