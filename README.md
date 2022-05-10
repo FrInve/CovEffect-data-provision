@@ -22,15 +22,19 @@ Get the latest archlinux image from dockerhub with:
 
 Change <CHANGE_INTO_FULL_PATH> with the path of the repo directory before execution.
 ```sh
-docker run -it --name arch -v <CHANGE_INTO_FULL_PATH>/CovEffect-data-provision:/CovEffect-data-provision -h arch -d archlinux:latest
+docker run -it --name coveffect-provision -v <CHANGE_INTO_FULL_PATH>/CovEffect-data-provision:/CovEffect-data-provision -h coveffect-provision -d archlinux:latest
 ```
+Access the container with bash
+```
+docker exec -it coveffect-provision bash
+```
+
 Initialize pacman and install base-devels and python3
 ```sh
 pacman-key --init
 pacman -Syu
 pacman -S base-devel python
 ```
-
 Setup a virtual environment and install the dependencies
 
 ```sh
